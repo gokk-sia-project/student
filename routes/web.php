@@ -5,12 +5,33 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->get('/users',['uses' => 'UserController@getUser']); //LISTUSER
 
-$router->get('/guser/{id}', 'UserController@getID'); //GETIDUSER
+// USER CONTROLLER ROUTES
 
-$router->post('/auser', 'UserController@addUser'); //ADDUSER
+$router->get('/students',['uses' => 'UserController@getUsers']);
 
-$router->put('/uuser/{id}', 'UserController@updateUser');  //UPDATEUSER
+$router->get('/student/{id}', 'UserController@getID');
 
-$router->delete('/duser/{id}', 'UserController@deleteUser'); //DELETEUSER
+$router->post('/student', 'UserController@addUser');
+
+$router->put('/student/{id}', 'UserController@updateUser');
+
+$router->patch('/student/{id}', 'UserController@updateUser');
+
+$router->delete('/student/{id}', 'UserController@deleteUser');
+
+
+// USER DETAILS CONTROLLER ROUTES
+
+$router->get('/studentdetails','UserDetailsController@index');
+
+$router->get('/studentdetails/{id}','UserDetailsController@show');
+
+$router->post('/studentdetails', 'UserDetailsController@add');
+
+
+// USER GRADES CONTROLLER ROUTES
+
+$router->get('/studentgrades','UserGradesController@index');
+
+$router->get('/studentgrades/{id}','UserGradesController@show');

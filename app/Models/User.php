@@ -5,8 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 class User extends Model{
 
-    protected $table = 'tbl_user';
+    protected $table = 'students';
     protected $fillable = [
-        'username', 'password', 'id'
+            'course_id', 'firstname', 'lastname', 'middlename', 'contact_number', 'email_address',
     ];
+    
+    public $timestamps = false;
+    protected $primaryKey = 'student_id';
+    
 }
